@@ -1,0 +1,57 @@
+# kivy 1.11.1
+#KV do grid_layout_kv
+
+<Button>:
+    font_size: 50
+    bold: True
+    italic: True
+
+<MainGridLayout>:
+
+    cols: 2
+    spacing: 10
+    padding: 30
+
+    Button:
+        text: 'Button 1'
+        font_size: 50
+        bold: True
+        italic: True
+    SecondGridLayout:
+
+    # GridLayout:
+    #     cols: 1
+
+    #     Button:
+    #         text: 'Button 2'
+
+    #     Button:
+    #         text: 'Button 3'
+
+    #     Button:
+    #         text: 'Button 4'
+
+    Button:
+        text: 'Button 5'
+        
+    Button:
+        text: 'Button 6'
+        #usando sistema de cores com RGBA(opacidade)
+        #color: 1, 0, 0, 1
+        #Usando sistema de cores com Hexadecimal
+        color: "#FFFFFF"
+
+<SecondGridLayout@GridLayout>:
+    cols: 1
+
+    Button:
+        text: 'Button 2'
+
+    Button:
+        text: 'Button 3'
+
+    Button:
+        text: 'Button 4'
+
+
+
