@@ -28,6 +28,14 @@ GerenciadorTelas:
 <TelaPrincipal>:
     name:'tela_principal'
 
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size:self.size
+            pos: self.pos
+            source:"restaurante_image.jpeg"
+
     FloatLayout:
 
         size_hint:1, 1
@@ -59,6 +67,9 @@ GerenciadorTelas:
         Button:
             text:'Caixa'
             pos_hint:{"center_x":0.5, "y": 0.23}
+            on_release:
+                app.root.current = 'tela_caixa'
+                root.manager.transidion.derection = 'down'
 
 
 
@@ -66,6 +77,14 @@ GerenciadorTelas:
 
 <TelaGarcom>:
     name: 'tela_garcom'
+
+    canvas:
+        Color:
+            rgba: 1, 0, 0, 0.2
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
 
     FloatLayout:
     
@@ -82,6 +101,40 @@ GerenciadorTelas:
             pos_hint: {"center_x": 0.5, "top": 0.75}
 
         TextInput:
+            hint_text: "Digite o pedido"
+            size_hint: 0.8, 0.3
+            pos_hint: {"center_x": 0.5, "top": 0.6}
+
+        Button:
+            text: "Enviar"
+            pos_hint: {"center_x": 0.5, "y": 0.12}    
+
+        Button:
+            text: "Voltar"
+            pos_hint: {"center_x": 0.5, "y": 0.01}
+            on_press:
+                app.root.current = 'tela_principal'
+                root.manager.transition.direction = 'down'
+
+
+<TelaCaixa>:
+    name: 'tela_caixa'
+
+    FloatLayout:
+    
+        size_hint: 1, 1
+
+        Label:
+            text: "Tela do Caixa"
+            size_hint: 0.8, 0.15
+            text_size: self.size
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+
+        TextInput:
+            hint_text: "Digite o número da mesa"
+            pos_hint: {"center_x": 0.5, "top": 0.75}
+
+        Text:
             hint_text: "Digite o pedido"
             size_hint: 0.8, 0.3
             pos_hint: {"center_x": 0.5, "top": 0.6}
